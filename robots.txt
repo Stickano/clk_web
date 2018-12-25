@@ -1,0 +1,56 @@
+User-agent: *
+Disallow: 
+
+User-agent: baiduspider
+Disallow: 
+
+User-agent: baiduspider-image
+Disallow: 
+
+User-agent: baiduspider-mobile
+Disallow: 
+
+User-agent: baiduspider-news
+Disallow: 
+
+User-agent: baiduspider-video
+Disallow: 
+
+User-agent: bingbot
+Disallow: 
+
+User-agent: msnbot
+Disallow: 
+
+User-agent: msnbot-media
+Disallow: 
+
+User-agent: adidxbot
+Disallow: 
+
+User-agent: Googlebot
+Disallow: 
+
+User-agent: Googlebot-Image
+Disallow: 
+
+User-agent: Googlebot-Mobile
+Disallow: 
+
+User-agent: Googlebot-News
+Disallow: 
+
+User-agent: Googlebot-Video
+Disallow: 
+
+User-agent: Mediapartners-Google
+Disallow: 
+
+User-agent: AdsBot-Google
+Disallow: 
+
+User-agent: slurp
+Disallow: 
+
+User-agent: yandex
+Disallow: 

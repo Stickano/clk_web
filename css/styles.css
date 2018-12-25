@@ -1,0 +1,75 @@
+@charset="utf-8";
+
+/*
+
+	This stylesheet will make some browser reset and general
+	adjustments that I usually do anyways.
+	2017, Henrik (Jeppesen@tutanota.com)
+
+ */
+
+html {
+	height: 100%;
+	width : 100%;
+}
+
+@media (min-width: 640px) {
+  html { font-size: 112%; }
+}
+@media (min-width: 1024px) {
+  html { font-size: 120%; }
+}
+
+body {
+	height    : 100%;
+	width     : 100%;
+	overflow-y: scroll;
+}
+
+/* Reset all margin and padding */
+* {
+	margin : 0;
+	padding: 0;
+}
+
+/* Fix Image Sizes */
+img {
+	height: auto !important;
+	width : 100%;
+}
+
+/* Collapse table border */
+table, td {
+	border-collapse: collapse;
+}
+
+#errorContainer {
+	background-color: #d9534f;
+	color           : whitesmoke;
+	padding         : 10px;
+	position        : fixed;
+	text-align      : center;
+	width           : 100%;
+	z-index         : 99;
+}
+
+#closeError {
+	background  : none;
+	border      : none;
+	color       : whitesmoke;
+	cursor      : pointer;
+	margin-right: 25px;
+	margin-top  : 3px;
+	outline     : none;
+	position    : relative;
+	z-index     : 999;
+}
+
+.clearfix {
+  *zoom: 1;
+  clear: both;
+}
+
+.right {
+  float: right;
+}

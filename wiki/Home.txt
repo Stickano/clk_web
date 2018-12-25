@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-12-21T09:02:18+01:00
+
+====== Home ======
+Created Friday 21 December 2018
+
+== About ==
+Command Line Kanban (CLK) is a powerful and versatile Kanban tool for your terminal. You can use it either as a continuous running application in your terminal, or you can initialize the program with arguments to quickly, and recursivly, administrate your boards and their items. CLK was created in late 2018 as a final project for a Computer Science (CS) graduation and will continue to be developed on as an opensource project, as there might be a small niche for the product. Besides the CLI application, a RESTful interface, running as an Azure web service and communicating with a database also hosted on Azure, and this website was created for the purpose of my finals. 
+
+== How it works ==
+Very basically, the program needs to know which item you are in/working on. The program has three "//layers//": **Boards**, **Lists** and **Cards**. If you are familiar with how Kanban boards work in general, this might all seem common to you. 
+
+So you.. 
+* go into a board (set the board) to see its lists, 
+* and you set the list to see its cards,
+* and you set the card to see its content.
+
+Cards can hold content as **Checklists**, with checklist** Points**, **Comments** and a **Description**. This setup allows you to break a project into smaller pieces, giving a better overview of what has to be done for the project as a whole, and each piece (card) can hold the information on how to satisfy the requirements of each piece.
+
+==== Usage information and examples ====
+For now usage information and examples are available. As the project will progress into a opensource project, contribution guidelines will be addressed too. 
+
+1. [[Argument usage and examples]]
+2. [[Continuous running]]

@@ -1,0 +1,95 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-12-25T00:56:19+01:00
+
+====== Continuous running ======
+Created Tuesday 25 December 2018
+
+If you do not want to handle your boards via arguments, it is also possible to run the application as a continuously running program with a minimal user interface.
+
+**# Open the program as a continuous running application, with a simple user interface (no arguments):**
+$ clk
+
+===== Controls =====
+You will have a visual representation of available option in the bottom of the program at all times. 
+
+== Cursor ==
+There is a little cyan colored cursor (>) showing the position on the board at all times. Use this cursor to navigate to the items you want to work on. 
+
+
+== Navigate ==
+You can navigate with you arrow keys, or if you are familiar with the //Vi// editor, there is a few navigation options you might be acustomed to. 
+
+	* Left / h		  : Navigate left
+	* Right / l		  : Navigate right
+	* Up / k			  : Navigate up
+	* Down / j		  : Navigate down
+
+	* Enter / Space  : Select
+	* b				  : Back
+	* q				  : Quit
+
+	* $				  : Last in line
+	* 0				  : First in line
+	* g				  : Last in list
+	* f				  : First in list
+
+
+== Boards Overview ==
+On the first page (boards overview), only a few options are available. 
+
+**# To create a new board, push the key: **i
+**# To delete a board, navigate to the board and push key: **d
+**# To update the name of a board, navigate to the board and push key: **//u//
+
+
+== Show board ==
+When you select a board, its lists will be shown. Navigate left/right to go between lists, and use up/down to through the cards in each list.
+
+Here is a few restrictions:
+	* Only 3 lists are shown at any time - You can still get to them, by just continue to navigate next/back in your lists.
+	* The cards will only be shown for the current selected list. This might be a thing to work on in the future, but for now you have to navigate through the lists to see its cards.
+	* Only 5 cards will be shown at any time. Same as with the list, you can still navigate to further cards, by going down/up the available cards in the list.
+
+**# To create a new list, push key: **i
+**# To create a new card, navigate to the wanted list and push key: **o
+
+**# To delete an item, navigate the cursor to either the list or card, and push key: **d
+**# To update (rename) an item, likewise navigate to the item and push key: **u
+
+**# To show all available information about a board, push key: **m
+
+
+== Show card ==
+When a card has been selected, its content will be shown. This includes checklists, and their checklist points, comments and a description. All card information is optional - Well, except the name I guess.
+
+**# To create a new checklist, push key:** i
+**# To create a new checkist point, navigate to the wanted checklist and push key: **o
+**# To check/un-check a point, navigate to the wanted point and push key: **Enter / Space
+
+**# To create a new comment push key: **c
+
+**# To delete an item, navigate the cursor to the item in question and push key: **d
+**# To update (rename) an item, likewise navigate to the item and push key: **u
+
+
+== Cloud  options ==
+To use the cloud options, one first have to be logged in.
+
+**# To login, push key: **a
+**# When you are logged in, to see your profile page (and logout option), again push key: **a
+
+**# To save a board to the cloud, push key: **x
+**# To get a list of all available boards in the cloud, push key: **z
+**# To download a board, navigate to the wanted board in the list of available options and push key: **Enter / Space
+
+
+== Settings ==
+The settings in this application is mainly On/Off settings, and if further information is needed, the user will be requestet for such. 
+
+**# To show the settings page, push key: **s
+**# To activate/deactivate, navigate the items and push key: **Enter / Space
+
+
+
+

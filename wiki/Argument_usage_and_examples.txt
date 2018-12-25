@@ -1,0 +1,223 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-12-24T19:49:03+01:00
+
+====== Argument usage and examples ======
+Created Monday 24 December 2018
+
+Very few restrictions is are made when administrating your boards, and you are able to recursivly add new items to boards, lists and comments. 
+
+| Tip                                                                                                          |
+|:-------------------------------------------------------------------------------------------------------------|
+| You can choose to either use full argument description for board, list and card, or use their shortcut code: |
+| Board: --board  or  -b                                                                                       |
+| List: --list  or  -l                                                                                         |
+| Card: --card  or -c                                                                                          |
+
+
+
+===== General usage =====
+These following steps will give you a general idea, how to navigate your kanban boards and their content. It will show basic instructions for Create, Read, Update and Delete (CRUD) methods.
+
+== READ content ==
+You read content from each item by pointing on which element to read. There a 3 element levels to point to and read from: Boards, Lists and Cards. 
+
+**# Show all boards:**
+$ clk -b
+
+**# Select specific board, and show all lists:**
+$ clk -b 2
+
+**# Select a list and see its cards:**
+$ clk -b 2 -l 4
+
+**# Select a card and see its content:**
+$ clk -b 2 -l 4 -c 1
+
+
+== CREATE content ==
+To create new content use the //--new-[element]//  keyword.
+
+| Tip                                                                                                                                        |
+|:-------------------------------------------------------------------------------------------------------------------------------------------|
+| If your item titles (values) has spaces in them, encapsulate the title in double quotes ("), otherwise the double quotes is not necessary. |
+
+
+**# Create a new board:**
+$ clk --new-board "Board Name"
+
+**# Create a new list in board 2:**
+$ clk -b 2 --new-list Backlog
+
+**# Create a new card in list 4, in board 2:**
+$ clk -b 2 -l 4 --new-card "User Story"
+
+**# Create a new checklist in card 1, in list 4 etc:**
+$ clk -b 2 -l 4 -c 1 --new-check Checklist
+
+**# Create a new checkist point in checklist 2, card 1 .. :**
+$ clk -b 2 -l 4 -c 1 -p 2 --new-point "Do this"
+
+**# Set the description for a card:**
+$ clk -b 2 -l 4 -c 1 --description "A very informative description about this card."
+
+**# Add a comment to a card:**
+$ clk -b 2 -l 4 -c 1 --comment "When doing this, also remember that.."
+
+
+== DELETE content ==
+To delete already existing content, use the //--del-[element]//  keyword.
+
+**# Delete a board:**
+$ clk --del-board 2
+
+**# Delete a list:**
+$ clk -b 2 --del-list 4
+
+**# Delete a card:**
+$ clk -b 2 -l 4 --del-card 3
+
+**# Delete a checklist:**
+$ clk -b 2 -l 4 -c 3 --del-check 5
+
+**# Delete a checklist point:**
+$ clk -b 2 -l 4 -c 3 -p 1 --del-point 3
+
+**# Delete a comment: **
+$ clk -b 2 -l 4 -c 3 --del-comment 2
+
+
+== UPDATE content ==
+To update content, either board, list or card, point to the element you want to update and trail it with a //--edit//  keyword followed by its new value.
+
+**# To update the name of a board:**
+$ clk -b 2 --edit "A new board name"
+
+**# To update the name of a list:**
+$ clk -b 2 -l 4 --edit "A new list name"
+
+**# To update the name of a card:**
+$ clk -b 2 -l 4 -c 3 --edit "A new card name"
+
+**# To update the name of a checklist:**
+$ clk -b 2 -l 4 -c 3 -p 5 --edit "A new checklist name"
+
+
+== UPDATE extra ==
+This sort of fall into the update category, yet I felt it was a bit outsite the new naming steps from above.
+
+**# To check a point in a checklist (mark/un-mark):**
+$ clk -b 2 -l 4 -c 1 -p 5 --point 3
+
+**# To set a color label on a card (red, green, yellow, blue and cyan):**
+$ clk -b 2 -l 4 -c 3 --label red
+
+
+===== Recursive actions =====
+You can perform many recursive actions on your boards, lists and cards - All you need to know is, that the last element you have selected, is the element that will be worked on. 
+
+All values are space seperated, so encapsulate content with spaces in double quotes (").
+
+== Boards ==
+**# To add several new boards:**
+$ clk --new-board "Board 1" "Board 2" "Board 3"
+
+**# To delete several boards:**
+$ clk --del-board 2 4 6
+
+
+== Lists ==
+**# To add several new lists:**
+$ clk -b 2 --new-list "List 1" "List 2" "List 3"
+
+**# To delete several lists:**
+$ clk -b 2 --del-list 1 3 5
+
+
+== Cards ==
+**# To add several new cards:**
+$ clk -b 2 -l 4 --new-card "Card 1" "Card 2" "Card 3"
+
+**# To delete several cards:**
+$ clk -b 2 -l 4 --del-card 3 6 9
+
+
+== Extra ==
+There's a lot more workflow examples for recursive actions. Again, all that matters is the last selected element and which actions to perform on that element. When you create a new element, that element will be selected as the latest to perform actions on.
+
+**# We could i.e. set the description for several cards at once:**
+$ clk -b 2 -l 4 -c 2 --description "A description for card 2" -c 4 --description "A description for card 4"
+
+**# Same goes for comments:**
+$ clk -b 2 -l 4 -c 2 --comment "A comment in card 2" -c 4 --comment "A comment in card 4"
+
+**# And the same goes for checklists, checklists points, marking/un-marking points and so forth. **
+
+**# We can also check several points at once:**
+$ clk -b 2 -l 4 -c 3 -p 5 --point 1 2 3 5
+
+**# You can even take it a step deeper, though. Ex. to create a board, with several lists, with several cards, and with card descriptions:**
+$ clk --new-board "Board 1" --new-list "List 1" --new-card "Card 1 in List 1" --description "Description for card 1 in List 1" --new-card "Card 2 in List 1" --new-list "List 2" --new-card "Card 1 in List 2" --description "Description for card 1 in List 2"
+
+
+===== Cloud actions =====
+If you create an online profile for this application, you will have additional options to save and receive boards from the cloud, along with collaboration on projects, in teams. You can choose to either create the profile on this website, or you can do it directly in the application. Once you're a registered profile, additional board overview will also be available from this website, after you've logged in.
+
+== Profile ==
+Once you've created a profile, you can choose to either login each time you want to communicate with the cloud, or you can store your login information to disc, allowing you to auto-login on cloud requests. You password will be stored in a hashed state and no clear-text passwords will be up for the grapping.
+
+**# Create a new profile:**
+$ clk --new-profile valid@emailaddress.com --password strongpassword123
+
+**# To login:**
+$ clk --login valid@emailaddress.com --password strongpassword123
+
+**# To store the user information to disc:**
+$ clk --login valid@emailaddress.com --password strongpassword123 --save-user
+
+**# If you do not save the user information to disc, make sure to do the login step before making cloud requests.**
+**# The following examples will assume that the user information has been stored on disc (no login needed).**
+
+
+== Boards ==
+**# To save a board to the cloud:**
+$ clk --cloud-save 5
+
+**# To receive a list all boards available in he cloud:**
+$ clk --cloud-boards
+
+**# To receive a specific board and all its content: **
+$ clk --cloud-get 2
+
+
+== Members ==
+You can only add members and give administrator rights, if you're an administrator yourself, or the board owner. You can only add members to boards, which has been saved to the cloud. 
+
+**# To see all members of a board:**
+$ clk -b 2 --members
+
+**# To grant administrator rights to a board member:**
+$ clk -b 2 --admin 5
+
+**# To invite a user to a board: **
+$ clk -b 2 --new-member valid@emailaddress.com
+
+**# To remove a user from a board:**
+$ clk -b 2 --del-member valid@emailaddress.com 
+
+| Tip                                                                                              |
+|:-------------------------------------------------------------------------------------------------|
+| You can add and delete members recursively as well. Just seperate the email-address' with space. |
+
+
+
+===== Settings =====
+CLI Kanban comes with a few optional, user defined settings. It is based on On/Off, or True/False, so you just point to the setting item to activate/deactivate.
+
+**# Get an overview of user settings and preferences:**
+$ clk --settings
+
+**# To click (activate/deactivate) a certain setting:**
+$ clk --settings 5
+
+
