@@ -1,17 +1,10 @@
 <?php
 
 @session_start();
-require_once('models/connection.php');
-require_once('models/crud.php');
-require_once('resources/credentials.php');
 
 final class Singleton {
 
     private static $instance;
-
-    # database connection
-    private static $conn;
-    private static $crud;
 
     # View and Controller
     public static $page;
@@ -35,8 +28,6 @@ final class Singleton {
 
             self::$instance = new self();
 
-            self::setConn();
-            self::setDb();
             self::setView();
             self::setController();
             self::checkErrors();
@@ -79,46 +70,8 @@ final class Singleton {
         if (is_file('controllers/'.self::$page.'.php')) {
             require_once('controllers/'.self::$page.'.php');
             $controller       = ucfirst(self::$page).'Controller';
-            self::$controller = new $controller(self::getDb());
+            self::$controller = new $controller();
         }
-    }
-
-    /**
-     * Creates a connection object
-     */
-    private static function setConn() {
-        $credentials = new Credentials();
-        if ($credentials->get()) {
-            $val        = $credentials->get();
-            self::$conn = new Connection($val['host'],
-                                         $val['user'],
-                                         $val['pass'],
-                                         $val['db']);
-        }
-    }
-
-    /**
-     * Creates a CRUD object
-     */
-    private static function setDb() {
-        if (self::$conn)
-            self::$crud = new Crud(self::getConn());
-    }
-
-    /**
-     * Returns the connection
-     * @return object Connection class
-     */
-    private static function getConn() {
-        return self::$conn;
-    }
-
-    /**
-     * Return the CRUD methods
-     * @return object Class holding the CRUD methods
-     */
-    private static function getDb() {
-        return self::$crud;
     }
 
     /**

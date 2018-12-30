@@ -2,14 +2,11 @@
 
 class IndexController{
 
-    private $db;
 
-    public function __construct(Crud $db=null){
-        $this->db = $db;
+    public function __construct(){
+
     }
 
-
-    # Your control methods here...
 
 }
 

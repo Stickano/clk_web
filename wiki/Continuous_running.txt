@@ -29,8 +29,8 @@ You can navigate with you arrow keys, or if you are familiar with the //Vi// edi
 	* b				  : Back
 	* q				  : Quit
 
-	* $				  : Last in line
-	* 0				  : First in line
+	* r				  : Last in line
+	* t				  : First in line
 	* g				  : Last in list
 	* f				  : First in list
 
