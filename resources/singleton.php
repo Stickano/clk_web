@@ -2,9 +2,12 @@
 
 @session_start();
 
+require_once("models/tls.php");
+
 final class Singleton {
 
     private static $instance;
+    private static $tls;
 
     # View and Controller
     public static $page;
@@ -27,6 +30,9 @@ final class Singleton {
         if(!isset(self::$instance)){
 
             self::$instance = new self();
+
+            self::$tls = new Tls();
+            self::$tls->secureConnect();
 
             self::setView();
             self::setController();
