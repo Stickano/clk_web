@@ -1,4 +1,3 @@
-<div id="content">
 
 <h1>Home <a name='Home'></a></h1>
 <p>
@@ -45,5 +44,3 @@ For now usage information and examples are available. As the project will progre
 
 <br>
 <span class="backlinks"></span>
-
-</div>

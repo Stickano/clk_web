@@ -1,4 +1,4 @@
-<div id="content">
+
             <h1>Argument usage and examples <a name='Argument usage and examples'></a></h1>
 
             <p>
@@ -404,6 +404,3 @@ $ clk --settings 5
                 <a href='./index.html'>Home</a>
                 <br /><br />
             </span>
-
-            
-        </div>

@@ -1,4 +1,4 @@
-<div id="content">
+
             <h1>Continuous running <a name='Continuous running'></a></h1>
 
             <p>
@@ -173,6 +173,3 @@ The settings in this application is mainly On/Off settings, and if further infor
                 <a href='./index.html'>Home</a>
                 <br /><br />
             </span>
-
-            
-        </div>

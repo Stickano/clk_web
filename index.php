@@ -9,10 +9,19 @@ echo'<head>';
 echo'</head>';
 echo'<body>';
 
-# Print errors
-if($singleton->getErrors()) {
-    echo '<div id="errorContainer">';
-        echo $singleton->getErrors();
+# Print errors & messages
+if($singleton->getErrors() || $singleton->getMsg()) {
+
+    if ($singleton->getErrors()){
+        $msg = $singleton->getErrors();
+        $color = "#d9534f";
+    }else{
+        $msg = $singleton->getMsg();
+        $color = "#8C9440";
+    }
+
+    echo '<div id="errorContainer" style="background-color:'.$color.';">';
+        echo $msg;
         echo '<button class="right" id="closeError">&#10006;</button>';
     echo '</div>';
 }
@@ -20,6 +29,7 @@ if($singleton->getErrors()) {
 echo'<div class="wrapper">';
     echo'<div id="navigation"> <ul>';
 
+        # Bold font for current page in menu
         $isHome = "style='font-weight:bold;'";
         $isArg  = null;
         $isCont = null;
@@ -38,13 +48,14 @@ echo'<div class="wrapper">';
             $isProfile = "style='font-weight:bold;'";
         }
 
+        # Menu
         echo'<li '.$isHome.'><a href="index.php">Home</a></li>';
         if (isset($_SESSION['clk_uid']))
             echo'<li '.$isProfile.'><a href="index.php?Profile">Profile</a></li>';
         echo'<li '.$isArg.'><a href="?Argument_usage_and_examples" title="Argument usage and examples" class="page">Argument usage and examples</a></li>';
         echo'<li '.$isCont.'><a href="?Continuous_running" title="Continuous running" class="page">Continuous running</a></li>';
 
-
+        # Login form
         if (!isset($_SESSION['clk_uid'])){
             echo'<form method="post" action="resources/login.php" style="margin-top:80px;">';
             echo'<input type="text" name="clk_uname" placeholder="E-mail">';
@@ -59,10 +70,12 @@ echo'<div class="wrapper">';
 
 
     echo'</ul> </div>';
+    echo'<div id="content">';
 
     # This will load the appropriate view
     require_once('views/'.$singleton::$page.'.php');
 
+    echo '</div>';
 echo'</div>';
 
 

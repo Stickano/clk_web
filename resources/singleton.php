@@ -14,6 +14,7 @@ final class Singleton {
     public static $controller;
 
     public static $error;
+    public static $msg;
 
     # Private constructor to ensure it won't be initialized
     private function __construct(){}
@@ -31,9 +32,11 @@ final class Singleton {
 
             self::$instance = new self();
 
+            # Make sure we are using SSL/TLS (https)
             self::$tls = new Tls();
             self::$tls->secureConnect();
 
+            # Set view, controller and check for errors.
             self::setView();
             self::setController();
             self::checkErrors();
@@ -90,6 +93,25 @@ final class Singleton {
             self::$error =  $_SESSION['error'];
             unset($_SESSION['error']);
         }
+    }
+
+    /**
+     * This will check if a message session has been set.
+     * @return  Sets $msg
+     */
+    private static function checkMessages(){
+        if(isset($_SESSION['message'])) {
+            self::$msg = $_SESSION['message'];
+            unset($_SESSION['message']);
+        }
+    }
+
+    /**
+     * Returns the message to the view
+     * @return String The message from the session
+     */
+    public static function getMsg(){
+        return self::$msg;
     }
 
     /**
