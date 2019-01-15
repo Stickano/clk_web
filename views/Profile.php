@@ -2,14 +2,14 @@
 
 # Board Overview
 if (!isset($_GET['Board'])){
-    echo'<h5 style="margin-top:65px;">Available boards:</h5>';
+    echo'<h5>Available boards:</h5>';
     foreach ($controller->getBoards() as $key => $value) {
         echo '<a href="?Profile&Board='.$value['id'].'">'.$value['name'].'</a>';
         echo '<br>';
     }
 }
 
-
+# If a specific board is selected
 if (isset($_GET['Board'])){
 
     # Action locations for forms
@@ -21,7 +21,7 @@ if (isset($_GET['Board'])){
     $board = $controller->getBoard();
     if (empty($board)){
         $_SESSION['error'] = "Board not found.";
-        //header("location:?Profile");
+        header("location:?Profile");
     }
 
     # Print out the board information

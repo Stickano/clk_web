@@ -62,11 +62,15 @@ class ProfileController{
         return $this->curl->curl("http://easj-final.azurewebsites.net/Service1.svc/board/get/".$bid);
     }
 
+    /**
+     * This will create a new list via the Profile view.
+     * @return  Retuns to current page
+     */
     public function createList(){
         $list = $_POST['listName'];
 
         # If the value is empty, set error and return
-        if (emtpy($list)){
+        if (empty($list)){
             $_SESSION['error'] = "Empty list value";
             header("location:".$this->client->getUrl());
         }
@@ -74,7 +78,7 @@ class ProfileController{
         $data = ["name" => $list, "boardId" => $_GET['Board'], "created" => $this->time->timestamp(), "id" => uniqid()];
 
         $this->curl->post($data);
-        $response = $this->curl->curl("http://easj-final.azurewebsites.net/Service1.svc/".$this->uid);
+        $response = $this->curl->curl("http://easj-final.azurewebsites.net/Service1.svc/board/createlist/".$this->uid);
 
         if ($response == 1)
             $_SESSION['message'] = "A new list was created.";
