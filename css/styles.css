@@ -84,8 +84,28 @@ table, td {
 
 .flex-container {
 	display: flex;
+  align-items: flex-start;
 	overflow-x: scroll;
+  min-width: 100%;
+}
 
+.flex-item {
+  flex-grow: 1;
+  margin-right: 60px;
+  min-width: 85px;
+}
+
+.editHead {
+  color: #f0ad4e;
+  font-size: 14px;
+}
+
+.subIcon {
+  background: none;
+  border: none;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
 }
 
 

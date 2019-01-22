@@ -28,7 +28,7 @@ if (isset($_POST['okLogin'])){
 if (isset($_POST['okSignUp'])){
 
     # We dont want empty values
-    if (empty($_POST['clk_uname'])
+    if (   empty($_POST['clk_uname'])
         || empty($_POST['clk_upass'])
         || !$val->valMail($_POST['clk_uname'])){
         $_SESSION['error'] = "Missing (or invalid) E-mail or Password value.";
@@ -42,8 +42,10 @@ if (isset($_POST['okSignUp'])){
 
     $return = $curl->curl("http://easj-final.azurewebsites.net/Service1.svc/profile/create");
 
-    if ($return['id'] != null)
-        $_SESSION['clk_uid'] = $return['id'];
+    if ($return == 1)
+        $_SESSION['message'] = "Account created. You can now login with the provided credencials.";
+    else
+        $_SESSION['error'] = "Something went wrong. Are you already registered?";
 }
 
 header("location:../index.php?Profile");

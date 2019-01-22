@@ -50,8 +50,12 @@ echo'<div class="wrapper">';
 
         # Menu
         echo'<li '.$isHome.'><a href="index.php">Home</a></li>';
-        if (isset($_SESSION['clk_uid']))
-            echo'<li '.$isProfile.'><a href="index.php?Profile">Profile</a></li>';
+        if (isset($_SESSION['clk_uid'])) {
+            echo'<li '.$isProfile.'><a href="index.php?Profile">Profile</a>';
+            echo $singleton->spaces(2);
+            echo'<a href="resources/logout.php" title="Log out"><i class="fas fa-sign-out-alt"></i></a>';
+            echo'</li>';
+        }
         echo'<li '.$isArg.'><a href="?Argument_usage_and_examples" title="Argument usage and examples" class="page">Argument usage and examples</a></li>';
         echo'<li '.$isCont.'><a href="?Continuous_running" title="Continuous running" class="page">Continuous running</a></li>';
 

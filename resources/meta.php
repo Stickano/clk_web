@@ -13,14 +13,14 @@
     # The index option tell the crawler if you want the page indexed
     # The follow option tells if you want links on the page to be followed
 
-    echo'<title></title>';
-    echo'<link rel="alternate" href="https://web.site" hreflang="dk" />';
+    echo'<title>CLI Kanban - Web</title>';
+    echo'<link rel="alternate" href="https://clkan.xyz" hreflang="en" />';
     echo'<link rel="shortcut icon" href="media/ico.ico">';
     echo'<meta charset="utf-8" />';
     echo'<meta http-equiv="X-UA-Compatible" content="IE=edge" />';
-    echo'<meta name="author" content="John Doe" />';
-    echo'<meta name="description" content="A short description of your site" />';
-    echo'<meta name="keywords" content="comma, separated, keywords" />';
+    echo'<meta name="author" content="Henrik Jeppesen" />';
+    echo'<meta name="description" content="Website for the CLI Kanban application." />';
+    echo'<meta name="keywords" content="clk, kanban, board, agile, development" />';
     echo'<meta name="robots" content="index, follow" />';
     echo'<meta name="viewport" content="width=device-width, initial-scale=0.8" />';
 
@@ -29,7 +29,7 @@
 
     # CDNs.
     # Font Awesome
-    // echo'<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">';
+    echo'<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">';
 
     # VueJs
     # Development version, includes helpful console warnings

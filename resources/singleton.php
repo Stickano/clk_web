@@ -40,6 +40,7 @@ final class Singleton {
             self::setView();
             self::setController();
             self::checkErrors();
+            self::checkMessages();
         }
 
         return self::$instance;
